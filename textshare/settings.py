@@ -32,7 +32,7 @@ SECRET_KEY = env("SECRET_KEY")
 IS_HEROKU = eval(env("IS_HEROKU"))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = eval(env("DEBUG"))
 
 ALLOWED_HOSTS = ["*"]
 
