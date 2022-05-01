@@ -12,18 +12,26 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import django_heroku
+import environ
+import os
 
 django_heroku.settings(locals())
 
+env = environ.Env()
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-k*6e=12=lg777y5h3mz)p@%=1yd)#dvmfy*v^zlkq!d_em)yi3"
+SECRET_KEY = env("SECRET_KEY")
+
+# Check if running in heroku
+IS_HEROKU = eval(env("IS_HEROKU"))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
