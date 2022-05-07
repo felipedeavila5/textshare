@@ -3,6 +3,8 @@ Share text with whoever you want
 
 [Live Demo](https://textshare.web.app/)
 
+[Front End](https://github.com/felipedeavila5/textshare-front)
+
 ![Cover](docs/images/cover.png)
 
 
